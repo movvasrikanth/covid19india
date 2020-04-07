@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    table {
+      border-collapse: collapse;
+      background-color: white;
+      overflow: hidden;
+      width: 500px;
+    }
+
+    th, td {
+      text-align: left;
+      font-size: 12px;
+      padding: 10px;
+      border: 0.1px solid black;
+
+    }
+
+    th {
+      background-color: #7691ab;
+      color: white;
+
+    }
+
+    </style>
+  </head>
+  <body>
+<table>
+  <tr>
+    <th>Items</th>
+
+  </tr>
+  <% data.forEach(function(item){ %>
+  <tr>
+    <td><%=item%></td>
+
+  </tr>
+<%  }); %>
+</table>
+
+  </body>
+</html>

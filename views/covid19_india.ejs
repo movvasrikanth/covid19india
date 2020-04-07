@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+  height:900,
+  animationEnabled: true,
+  zoomEnabled: true,
+  theme: "dark2",
+  toolTip:{
+      content: "{name}:- Total:{x}, Lask Week:{y}"
+    },
+  title:{
+    text: "Covid19_India"
+  },
+  axisX:{
+    // logarithmic: true,
+    title: "Total Cases",
+    valueFormatString: "####",
+    // interval: 2,
+    gridColor: "lightblue" ,
+    gridThickness: 0.2,
+    // maximum:900,
+    // minimum:1
+  },
+  axisY:{
+    // logarithmic: true, //change it to false
+    title: "Last Week Cases",
+    titleFontColor: "#6D78AD",
+    lineColor: "#6D78AD",
+    lineThickness: 0.4,
+    includeZero: false,
+    labelFormatter: addSymbols,
+    gridColor: "lightblue" ,
+    gridThickness: 0.2,
+    // maximum:750,
+    // minimum:1
+  },
+  // axisY2:{
+  //   logarithmic: true,
+  // 	title: "Internet Users",
+  // 	titleFontColor: "#51CDA0",
+  // 	lineColor: "#51CDA0",
+  // 	gridThickness: 0,
+  // 	lineThickness: 1,
+  // 	labelFormatter: addSymbols
+  // },
+  legend:{
+    verticalAlign: "top",
+    fontSize: 16,
+    dockInsidePlotArea: true
+  },
+  data: [
+  //   {
+  // 	type: "line",
+  // 	xValueFormatString: "####",
+  // 	showInLegend: true,
+  // 	name: "Total",
+  // 	dataPoints: [
+  //     <% result.forEach(function(item){ %>
+  //     {x:<%= item.tt %>, y: <%= item.covid %>},
+  //     <%  }); %>
+  // 	]
+  // },
+  {
+    type: "line",
+    xValueFormatString: "####",
+    // axisYType: "secondary",
+    showInLegend: true,
+    name: "telangana",
+    markerSize: 0,
+    dataPoints: [
+      <% result.forEach(function(item){ %>
+      {x:<%= item.tg %>, y: <%= item.covidtg %>},
+      <%  }); %>
+    ]
+  },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "maharashtra",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.mh %>, y: <%= item.covidmh %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "tamilnadu",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.tn %>, y: <%= item.covidtn %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "delhi",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.dl %>, y: <%= item.coviddl %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "kerala",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.kl %>, y: <%= item.covidkl %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "uttarpradesh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.up %>, y: <%= item.covidup %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "andhrapradesh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ap %>, y: <%= item.covidap %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "rajasthan",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.rj %>, y: <%= item.covidrj %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "madhyapradesh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.mp %>, y: <%= item.covidmp %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "karnataka",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ka %>, y: <%= item.covidka %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "gujarat",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.gj %>, y: <%= item.covidgj %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "haryana",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.hr %>, y: <%= item.covidhr %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "jammukashmir",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.jk %>, y: <%= item.covidjk %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "westbengal",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.wb %>, y: <%= item.covidwb %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "punjab",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.pb %>, y: <%= item.covidpb %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "odisha",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.or %>, y: <%= item.covidor %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "bihar",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.br %>, y: <%= item.covidbr %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "uttarakhand",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ut %>, y: <%= item.covidut %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "assam",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.as %>, y: <%= item.covidas %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "chandigarh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ch %>, y: <%= item.covidch %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "himachalpradesh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.hp %>, y: <%= item.covidhp %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "ladakh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.la %>, y: <%= item.covidla %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "andamannicobar",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.an %>, y: <%= item.covidan %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "chattisgarh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ct %>, y: <%= item.covidct %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "goa",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ga %>, y: <%= item.covidga %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "puducherry",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.py %>, y: <%= item.covidpy %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "jharkhand",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.jh %>, y: <%= item.covidjh %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "manipur",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.mn %>, y: <%= item.covidmn %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "arunachalpradesh",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.ar %>, y: <%= item.covidar %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "darahaveli",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.dn %>, y: <%= item.coviddn %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "mizoram",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.mz %>, y: <%= item.covidmz %>},
+          <%  }); %>
+        ]
+      },
+  {
+        type: 'line',
+        xValueFormatString: '####',
+        markerSize: 0,
+        showInLegend: true,
+        name: "tripura",
+        dataPoints: [
+          <% result.forEach(function(item){ %>
+          {x:<%= item.tr %>, y: <%= item.covidtr %>},
+          <%  }); %>
+        ]
+      },
+
+]
+});
+chart.render();
+
+function addSymbols(e){
+  var suffixes = ["", "K", "M", "B"];
+
+  var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
+  if(order > suffixes.length - 1)
+    order = suffixes.length - 1;
+
+  var suffix = suffixes[order];
+  return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+}
+
+}
+</script>
+  </head>
+  <body>
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+</html>
